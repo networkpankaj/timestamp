@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Random Number</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="randomNumberField">Random Number:</label>
+        <input type="text" class="form-control" readonly>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const kuchbhi = document.querySelectorAll('.form-control')[0];
+        kuchbhi.value = generateRandomNumber();
+        console.log(kuchbhi.value);
+
+        function generateRandomNumber() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const day = now.getDate();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const second = now.getSeconds();
+            const millisecond = now.getMilliseconds();
+            const timestamp = `${year}${day}${hour}${minute}${second}${millisecond}`;
+            const randomNumber = timestamp.slice(-6);
+            return randomNumber;
+        }
+
+    
+    </script>
+</body>
+</html>
